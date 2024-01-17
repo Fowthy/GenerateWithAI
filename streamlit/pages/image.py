@@ -31,9 +31,4 @@ if st.button('Generate Image'):
             "num_inference_steps": 40
         }
     )
-
-# Create columns
-cols = st.beta_columns(len(output))
-
-for i, out in enumerate(output):
-    cols[i].image(out, width=400, caption=f"Image {i+1}")
+    st.image(output, caption=output)
