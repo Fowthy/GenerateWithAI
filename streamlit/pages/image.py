@@ -31,4 +31,4 @@ if st.button('Generate Image'):
             "num_inference_steps": 40
         }
     )
-    st.image(output, caption=output)
+    st.image(output)
