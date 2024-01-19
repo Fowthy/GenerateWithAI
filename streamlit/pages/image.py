@@ -19,9 +19,9 @@ style_details = {
 
 # Dictionary for subject type details
 subject_type_details = {
-    "Person": ", perfect eyes, natural skin, looks at viewer",
-    "Animal": ", majestic mane, in its natural habitat",
-    "Vehicle": ", sleek design, vibrant color, beautiful reflections",
+    "Person": ", person, perfect eyes, natural skin, looks at viewer",
+    "Animal": ", animal, majestic mane, in its natural habitat",
+    "Vehicle": ", vehicle, sleek design, vibrant color, beautiful reflections",
     "Other": ""
 }
 
