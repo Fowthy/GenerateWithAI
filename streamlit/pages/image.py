@@ -15,7 +15,8 @@ num_outputs_options = [1, 2, 3]
 selected_num_outputs = st.selectbox('Select Number of Outputs', num_outputs_options)
 
 if st.button('Generate Image'):
-    output = replicate.run(
+    client = replicate.Client(api_token=st.secrets.replicate_api_token)
+    output = client.run(
         "lucataco/realvisxl-v2.0:7d6a2f9c4754477b12c14ed2a58f89bb85128edcdd581d24ce58b6926029de08",
         input={
             "width": 1024,

@@ -4,7 +4,7 @@ import replicate
 st.title("Realistic Audio Generator")
 st.subheader("an AI model that generates realistic audio")
 
-prompt = st.text_area("Enter your prompt here","Edo25 major g melodies that sound triumphant and cinematic. Leading up to a crescendo that resolves in a 9th harmonic")
+prompt = st.text_area("Enter your prompt here","Edo25 minor g melodies that sound dissonant and cinematic. Leading up to a crescendo that resolves in a 9th harmonic")
 
 # Dropdowns
 top_k_options = [100, 250, 500]

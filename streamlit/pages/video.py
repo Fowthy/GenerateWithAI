@@ -14,7 +14,8 @@ steps_options = [10, 20, 30]
 selected_steps = st.selectbox('Select Number of Steps', steps_options)
 
 if st.button('Generate Video'):
-    output = replicate.run(
+    client = replicate.Client(api_token=st.secrets.replicate_api_token)
+    output = client.run(
         "charlesmccarthy/hotshot-a40:12e43c65e07546ebe88cc1f15c44417fd95f9236d0fdc9b5559cbaa1b134c112",
         input={
             "steps": selected_steps,
