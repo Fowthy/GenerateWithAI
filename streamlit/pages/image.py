@@ -4,32 +4,29 @@ import replicate
 st.title("Realistic Image Generator")
 st.subheader("an AI model that generates realistic images")
 
-# Dropdowns for style and subject type selection
-selected_style = st.selectbox('Select Style', ["Realistic", "From the 80s", "Futuristic"])
-selected_subject_type = st.selectbox('Select Subject Type', ["Person", "Animal" ,"Vehicle","Other"])
+selected_style = st.radio('Select Style', ["Realistic", "From the 80s", "Futuristic"])
+selected_subject_type = st.radio('Select Subject Type', ["Person", "Animal" ,"Vehicle","Other"])
 
+# Text input for the subject
 subject = st.text_input("Enter the subject here", "latino man")
 
-type = ""
-if selected_style == "Realistic":
-    type = ", realistic, cinematic"
-elif selected_style == "From the 80s":
-    type = ", 80s art style"
-elif selected_style == "Futuristic":
-    type = ", futuristic style"
+# Dictionary for style details
+style_details = {
+    "Realistic": ", realistic, cinematic",
+    "From the 80s": ", 80s art style",
+    "Futuristic": ", futuristic style"
+}
+
+# Dictionary for subject type details
+subject_type_details = {
+    "Person": ", perfect eyes, natural skin, looks at viewer",
+    "Animal": ", majestic mane, in its natural habitat",
+    "Vehicle": ", sleek design, vibrant color, beautiful reflections",
+    "Other": ""
+}
 
 # Construct the prompt based on the style, subject, and subject type
-additional_info = ""
-if selected_subject_type == "Person":
-    additional_info = ", perfect eyes, natural skin, looks at viewer"
-elif selected_subject_type == "Animal":
-    additional_info = ", majestic mane, in its natural habitat"
-elif selected_subject_type == "Vehicle":
-    additional_info = ", sleek design, vibrant color, beautiful reflections"
-elif selected_subject_type == "Other":
-    additional_info = ""
-
-prompt = f"{subject}{type}{additional_info}"
+prompt = f"{subject}{style_details[selected_style]}{subject_type_details[selected_subject_type]}"
 
 if st.button('Generate Image'):
     client = replicate.Client(api_token=st.secrets.replicate_api_token)
@@ -39,9 +36,9 @@ if st.button('Generate Image'):
             "width": 1024,
             "height": 1024,
             "prompt": prompt,
-            "scheduler": 'DPMSolverMultistep',
+            "scheduler": selected_scheduler,
             "lora_scale": 0.6,
-            "num_outputs": 1,
+            "num_outputs": selected_num_outputs,
             "guidance_scale": 7,
             "apply_watermark": True,
             "negative_prompt": "(worst quality, low quality, illustration, 3d, 2d, painting, cartoons, sketch), open mouth",
