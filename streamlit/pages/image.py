@@ -6,7 +6,7 @@ st.subheader("an AI model that generates realistic images")
 
 # Dropdowns for style and subject type selection
 selected_style = st.selectbox('Select Style', ["Realistic", "From the 80s", "Futuristic"])
-selected_subject_type = st.selectbox('Select Subject Type', ["Person", "Animal" ,"Car","Other"])
+selected_subject_type = st.selectbox('Select Subject Type', ["Person", "Animal" ,"Vehicle","Other"])
 
 subject = st.text_input("Enter the subject here", "latino man")
 
@@ -24,7 +24,7 @@ if selected_subject_type == "Person":
     additional_info = ", perfect eyes, natural skin, looks at viewer"
 elif selected_subject_type == "Animal":
     additional_info = ", majestic mane, in its natural habitat"
-elif selected_subject_type == "Car":
+elif selected_subject_type == "Vehicle":
     additional_info = ", sleek design, vibrant color, beautiful reflections"
 elif selected_subject_type == "Other":
     additional_info = ""
