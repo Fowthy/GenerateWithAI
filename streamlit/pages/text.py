@@ -4,7 +4,6 @@ import replicate
 st.title("AI Text Generator")
 st.subheader("an AI model that generates creative text")
 
-# Inputs
 prompt = st.text_area("Enter your prompt here", "Can you write me a poem about steamed hams?")
 
 # Dropdowns
