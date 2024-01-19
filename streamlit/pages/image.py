@@ -4,8 +4,21 @@ import replicate
 st.title("Realistic Image Generator")
 st.subheader("an AI model that generates realistic images")
 
+# Dropdown for style selection
+style_options = ["realistic", "80s", "futuristic"]
+selected_style = st.selectbox('Select Style', style_options)
 
-prompt = st.text_area("Enter your prompt here","dark shot, front shot, closeup photo of a 25 y.o latino man, perfect eyes, natural skin, skin moles, looks at viewer, cinematic shot")
+# Text input for the subject
+subject = st.text_input("Enter the subject here", "latino man")
+
+# dark shot, front shot, closeup photo of a 25 y.o latino man, perfect eyes, natural skin, skin moles, looks at viewer, cinematic shot
+# Construct the prompt based on the style and subject
+if selected_style == "realistic":
+    prompt = f"{subject}, realistic, cinematic shot"
+elif selected_style == "80s":
+    prompt = f"{subject}, 80s art style"
+elif selected_style == "futuristic":
+    prompt = f"{subject}, futuristic style"
 
 # Dropdowns
 scheduler_options = ["DPMSolverMultistep"]
