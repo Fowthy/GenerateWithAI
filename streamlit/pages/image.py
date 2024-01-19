@@ -36,7 +36,7 @@ if st.button('Generate Image'):
             "width": 1024,
             "height": 1024,
             "prompt": prompt,
-            "scheduler": DPMSolverMultistep,
+            "scheduler": 'DPMSolverMultistep',
             "lora_scale": 0.6,
             "num_outputs": 1,
             "guidance_scale": 7,
