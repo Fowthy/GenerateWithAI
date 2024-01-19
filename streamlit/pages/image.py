@@ -4,28 +4,33 @@ import replicate
 st.title("Realistic Image Generator")
 st.subheader("an AI model that generates realistic images")
 
-# Dropdown for style selection
-style_options = ["realistic", "80s", "futuristic"]
-selected_style = st.selectbox('Select Style', style_options)
+# Dropdowns for style and subject type selection
+selected_style = st.selectbox('Select Style', ["Realistic", "From the 80s", "Futuristic"])
+selected_subject_type = st.selectbox('Select Subject Type', ["Person", "Animal" ,"Car","Other"])
 
 # Text input for the subject
 subject = st.text_input("Enter the subject here", "latino man")
 
-# dark shot, front shot, closeup photo of a 25 y.o latino man, perfect eyes, natural skin, skin moles, looks at viewer, cinematic shot
-# Construct the prompt based on the style and subject
-if selected_style == "realistic":
-    prompt = f"{subject}, realistic, cinematic shot"
-elif selected_style == "80s":
-    prompt = f"{subject}, 80s art style"
-elif selected_style == "futuristic":
-    prompt = f"{subject}, futuristic style"
+type = ""
+if selected_style == "Realistic":
+    type = ", realistic, cinematic"
+elif selected_style == "From the 80s":
+    type = ", 80s art style"
+elif selected_style == "Futuristic":
+    type = ", futuristic style"
 
-# Dropdowns
-scheduler_options = ["DPMSolverMultistep"]
-selected_scheduler = st.selectbox('Select Scheduler', scheduler_options)
+# Construct the prompt based on the style, subject, and subject type
+additional_info = ""
+if selected_subject_type == "Person":
+    additional_info = ", perfect eyes, natural skin, looks at viewer"
+elif selected_subject_type == "Animal":
+    additional_info = ", majestic mane, in its natural habitat"
+elif selected_subject_type == "Car":
+    additional_info = ", sleek design, vibrant color, beautiful reflections"
+else selected_subject_type == "Other":
+    additional_info = ""
 
-num_outputs_options = [1, 2, 3]
-selected_num_outputs = st.selectbox('Select Number of Outputs', num_outputs_options)
+prompt = f"{subject}{type}{additional_info}"
 
 if st.button('Generate Image'):
     client = replicate.Client(api_token=st.secrets.replicate_api_token)
