@@ -20,7 +20,8 @@ temperature_options = [0.5, 1, 1.5]
 selected_temperature = st.selectbox('Select Temperature', temperature_options)
 
 if st.button('Generate Audio'):
-    output = replicate.run(
+    client = replicate.Client(api_token=st.secrets.replicate_api_token)
+    output = client.run(
         "meta/musicgen:b05b1dff1d8c6dc63d14b0cdb42135378dcb87f6373b0d3d341ede46e59e2b38",
         input={
             "top_k": selected_top_k,
