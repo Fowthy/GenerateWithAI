@@ -26,7 +26,7 @@ elif selected_subject_type == "Animal":
     additional_info = ", majestic mane, in its natural habitat"
 elif selected_subject_type == "Car":
     additional_info = ", sleek design, vibrant color, beautiful reflections"
-else selected_subject_type == "Other":
+elif selected_subject_type == "Other":
     additional_info = ""
 
 prompt = f"{subject}{type}{additional_info}"
