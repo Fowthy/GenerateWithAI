@@ -8,7 +8,6 @@ st.subheader("an AI model that generates realistic images")
 selected_style = st.selectbox('Select Style', ["Realistic", "From the 80s", "Futuristic"])
 selected_subject_type = st.selectbox('Select Subject Type', ["Person", "Animal" ,"Car","Other"])
 
-# Text input for the subject
 subject = st.text_input("Enter the subject here", "latino man")
 
 type = ""
