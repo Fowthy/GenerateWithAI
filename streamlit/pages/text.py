@@ -25,7 +25,6 @@ selected_max_new_tokens = st.selectbox('Select Max New Tokens', max_new_tokens_o
 
 if st.button('Generate Text'):
     placeholder = st.empty()
-    client = replicate.Client(api_token=st.secrets.replicate_api_token)
     output = replicate.run(
         "mistralai/mistral-7b-instruct-v0.1:5fe0a3d7ac2852264a25279d1dfb798acbc4d49711d126646594e212cb821749",
         input={
