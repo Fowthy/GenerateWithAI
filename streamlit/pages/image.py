@@ -4,8 +4,8 @@ import replicate
 st.title("Realistic Image Generator")
 st.subheader("an AI model that generates realistic images")
 
-selected_style = st.radio('Select Style', ["Realistic", "From the 80s", "Futuristic"])
-selected_subject_type = st.radio('Select Subject Type', ["Person", "Animal" ,"Vehicle","Other"])
+selected_style = st.sidebar.radio('Select Style', ["Realistic", "From the 80s", "Futuristic"])
+selected_subject_type = st.sidebar.radio('Select Subject Type', ["Person", "Animal" ,"Vehicle","Other"])
 
 # Text input for the subject
 subject = st.text_input("Enter the subject here", "latino man")
