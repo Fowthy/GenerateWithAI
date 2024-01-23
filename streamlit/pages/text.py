@@ -5,7 +5,7 @@ st.title("AI Text Generator")
 st.subheader("an AI model that generates creative text")
 
 # Radio button for text type selection
-selected_text_type = st.radio('Select Text Type', ["Poem", "Lyrics", "Story", "Other"])
+selected_text_type = st.sidebar.radio('Select Text Type', ["Poem", "Lyrics", "Story", "Other"])
 
 # Text input for the subject
 subject = st.text_input("Enter the subject here", "steamed hams")
