@@ -10,12 +10,18 @@ prompt = st.text_area("Enter your prompt here","orange cat pirate")
 if st.button('Generate Video'):
     client = replicate.Client(api_token=st.secrets.replicate_api_token)
     output = replicate.run(
-        "adirik/mvdream:38af22609c9a779c2203c2009ff7451f115b44cde8d9a65ad132980714b82f34",
+        "cjwbw/shap-e:5957069d5c509126a73c7cb68abcddbb985aeefa4d318e7c63ec1352ce6da68c",
         input={
-            "prompt": prompt,
-            "max_steps": 10000,
-            "guidance_scale": 50,
-            "negative_prompt": "ugly, bad anatomy, blurry, pixelated obscure, unnatural colors, poor lighting, dull, and unclear, cropped, lowres, low quality, artifacts, duplicate, morbid, mutilated, poorly drawn face, deformed, dehydrated, bad proportions"
+            "prompt": "orange cat",
+            "save_mesh": False,
+            "batch_size": 1,
+            "render_mode": "nerf",
+            "render_size": 128,
+            "guidance_scale": 15
         }
     )
-    st.write(output)
+    st.image(output)
+
+
+st.header('Output for "orange cat"')
+st.image('./media/orangecat.gif')
