@@ -24,4 +24,4 @@ if st.button('Generate Video'):
 
 
 st.header('Output for "orange cat"')
-st.image('./media/orangecat.gif')
+st.image('./media/orangecat.gif', width=960)
