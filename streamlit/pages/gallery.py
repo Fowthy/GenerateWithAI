@@ -20,7 +20,7 @@ def gallery():
     st.title("Image Gallery")
 
     # Create a grid with 3 images per row
-    col1, col2, col3 = st.beta_columns(3)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         st.image(image1, use_column_width=True)
@@ -29,7 +29,7 @@ def gallery():
     with col3:
         st.image(image3, use_column_width=True)
 
-    col4, col5, col6 = st.beta_columns(3)
+    col4, col5, col6 = st.columns(3)
 
     with col4:
         st.image(image4, use_column_width=True)
