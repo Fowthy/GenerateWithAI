@@ -38,5 +38,24 @@ def gallery():
     with col6:
         st.image(image6, use_column_width=True)
 
+    
+    col7, col8, col9 = st.columns(3)
+
+    with col7:
+        st.image(image7, use_column_width=True)
+    with col8:
+        st.image(image8, use_column_width=True)
+    with col9:
+        st.image(image9, use_column_width=True)
+    
+    col10, col11 = st.columns(2)
+
+    with col10:
+        st.image(image10, use_column_width=True)
+    with col11:
+        st.image(image11, use_column_width=True)
+
+
+
 # Call the function to display the gallery
 gallery()
