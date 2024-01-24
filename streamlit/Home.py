@@ -6,8 +6,3 @@ st.write("This application is designed to explore the possibilities and limits o
 st.header("Demo")
 st.video("demo.mp4")
 
-st.markdown("""Content Generation Capabilities 📚🎵
-- Text Generation: Leveraging advanced language models, generate creative and contextually relevant text.
-- Image Generation: Create unique and visually appealing images using state-of-the-art AI models.
-- Video Generation: Produce engaging and high-quality videos with the help of AI.
-- Audio Generation: From music to voice-overs, generate a wide range of audio content.""")
